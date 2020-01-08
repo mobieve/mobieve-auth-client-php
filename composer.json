@@ -1,0 +1,28 @@
+{
+    "name": "mobieve/auth-client",
+    "description": "This package provides Classes for Auth Clients made by Mobieve.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tainan Fidelis",
+            "email": "taigfs@gmail.com"
+        },
+        {
+            "name": "Andrey Souto Maior",
+            "email": "andrey.maior@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.5.0",
+        "illuminate/support": "^5.8",
+        "symfony/http-kernel": "^4.4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mobieve\\AuthClient\\": "src/AuthClient"
+        }
+    }
+}
