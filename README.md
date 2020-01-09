@@ -45,7 +45,10 @@ This package provides Classes for Auth Clients made by Mobieve.
   To use Mobieve Middleware layer in order to check incoming requests authorization include following line in Http/Kernel.php:
 
   ```php
-    'mobieve.auth' => \Mobieve\AuthClient\Middleware\MovieveAuthMiddleware::class
+    protected $routeMiddleware = [
+      ...
+      'mobieve.auth' => \Mobieve\AuthClient\Middleware\MovieveAuthMiddleware::class
+    ];
   ```
 
   and add `'mobieve.auth'` in all routes you need to protect.
