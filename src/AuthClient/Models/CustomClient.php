@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Mobieve\AuthClient\Models;
 
 use \GuzzleHttp\Client;
 use \GuzzleHttp\RequestOptions;

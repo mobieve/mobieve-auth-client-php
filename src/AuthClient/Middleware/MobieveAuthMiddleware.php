@@ -1,6 +1,6 @@
 <?php
 
-namespace Middleware;
+namespace Mobieve\AuthClient\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
