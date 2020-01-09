@@ -19,6 +19,7 @@
         "guzzlehttp/guzzle": "^6.5.0",
         "illuminate/support": "^5.8",
         "symfony/http-kernel": "^4.4.1",
+        "symfony/psr-http-message-bridge": "^2.0",
         "tymon/jwt-auth": "^1.0.0-rc-5"
     },
     "autoload": {
