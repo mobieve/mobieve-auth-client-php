@@ -27,17 +27,34 @@ This package provides Classes for Auth Clients made by Mobieve.
   ```php
     'aliases' => [
         ...
-        'Client' => Mobieve\AuthClient\Facades\CustomClient::class
+        'MobieveClient' => Mobieve\AuthClient\Facades\CustomClient::class
 
     ],
   ```
+
+
+  You also need to configure auth service info in config/services.php, like:
+
+  ```php
+    return [
+      ...
+      'auth' => [
+          'url' => env('MOBIEVE_AUTH_URL'),
+          'client_id' => env('MOBIEVE_AUTH_CLIENT_ID'),
+          'client_secret' => env('MOBIEVE_AUTH_CLIENT_SECRET')
+      ]
+    ];
+  ```
+
+  and include MOBIEVE_AUTH_URL and your personal MOBIEVE_AUTH_CLIENT_ID and MOBIEVE_AUTH_CLIENT_SECRET in your environment variables.
+  
 #### Usage
 
   ```php
-    Client::get(string $url, array $params);
-    Client::post(string $url, array $params);
-    Client::put(string $url, array $params);
-    Client::delete(string $url);
+    MobieveClient::get(string $url, array $params);
+    MobieveClient::post(string $url, array $params);
+    MobieveClient::put(string $url, array $params);
+    MobieveClient::delete(string $url);
   ```
   
 ## Middleware
