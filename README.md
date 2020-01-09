@@ -8,7 +8,9 @@ This package provides Classes for Auth Clients made by Mobieve.
 * Mobieve\AuthClient\Models\CustomClient
 * Mobieve\AuthClient\Providers\CustomClientServiceProvider
 
-## Usage
+## Mobieve Custom HTTP Client
+
+#### Configuration
 
   In config/app.php include:
 
@@ -29,7 +31,14 @@ This package provides Classes for Auth Clients made by Mobieve.
 
     ],
   ```
+#### Usage
 
+  ```php
+    Client::get(string $url, array $params);
+    Client::post(string $url, array $params);
+    Client::put(string $url, array $params);
+    Client::delete(string $url);
+  ```
   
 ## Middleware
 
