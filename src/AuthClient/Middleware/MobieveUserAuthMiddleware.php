@@ -29,7 +29,7 @@ class MobieveUserAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    function handle($request, Closure $next)
     {
         try {
             if (Auth::check()) { return $next($request); }
