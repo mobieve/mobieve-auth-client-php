@@ -61,7 +61,7 @@ class MobieveClientAuthMiddleware
         }
     }
 
-    function checkRequesterIdentity()
+    public static function checkRequesterIdentity()
     {
         $isApi = JWTAuth::getPayload()->get('is_api_client');
 
