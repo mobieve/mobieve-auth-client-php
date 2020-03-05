@@ -36,8 +36,6 @@ class MobieveAuthMiddleware
                 $user_id = $this->getUserId();
                 $team_id = $this->getTeamId();
 
-                // $request->input('user_id', $user_id);
-                // $request->input('team_id', $team_id);
                 $request->request->add([
                     'user_id' => $user_id,
                     'team_id' => $team_id
@@ -84,10 +82,10 @@ class MobieveAuthMiddleware
     {
         $user = \JWTAuth::getPayload()->get('user_id');
 
-        if (!isset($user)) 
-        {
-            throw new \Tymon\JWTAuth\Exceptions\TokenInvalidException();
-        }
+        // if (!isset($user)) 
+        // {
+        //     throw new \Tymon\JWTAuth\Exceptions\TokenInvalidException();
+        // }
         return $user;
     }
 
@@ -95,10 +93,10 @@ class MobieveAuthMiddleware
     {
         $team = \JWTAuth::getPayload()->get('team_id');
 
-        if (!isset($team))
-        {
-            throw new \Tymon\JWTAuth\Exceptions\TokenInvalidException();
-        }
+        // if (!isset($team))
+        // {
+        //     throw new \Tymon\JWTAuth\Exceptions\TokenInvalidException();
+        // }
         return $team;
     }
 
