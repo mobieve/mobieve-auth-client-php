@@ -99,7 +99,7 @@ class CustomClient {
     return $this->client->delete($url);
   }
 
-  protected function getClientAccessToken()
+  public function getClientAccessToken()
   {
     $accessToken = \Cache::get('access_token');
     if (!isset($accessToken)) {
