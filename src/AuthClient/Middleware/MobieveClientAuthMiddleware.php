@@ -27,7 +27,7 @@ class MobieveClientAuthMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    function handle($request, Closure $next)
     {
         try {
             JWTAuth::parseToken();
