@@ -38,8 +38,8 @@ This package provides Classes for Auth Clients made by Mobieve.
   ```php
     'aliases' => [
         ...
-        'Auth' => Illuminate\Support\Facades\Auth,
-        'User' => App\User
+        'Auth' => Illuminate\Support\Facades\Auth::class,
+        'User' => App\User::class
     ],
   ```
 
