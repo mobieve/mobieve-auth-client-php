@@ -117,8 +117,7 @@ class CustomClient {
         RequestOptions::JSON => [
             'grant_type' => 'client_credentials',
             'client_id' => config('services.auth.client_id'),
-            'client_secret' => config('services.auth.client_secret'),
-            'scope' => config('services.auth.scope')
+            'client_secret' => config('services.auth.client_secret')
         ]
     ]);
 

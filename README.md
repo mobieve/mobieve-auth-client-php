@@ -50,6 +50,7 @@ This package provides Classes for Auth Clients made by Mobieve.
     return [
       ...
       'auth' => [
+          'url' => env('MOBIEVE_AUTH_URL'),
           'client_id' => env('MOBIEVE_AUTH_CLIENT_ID'),
           'client_secret' => env('MOBIEVE_AUTH_CLIENT_SECRET')
       ]
