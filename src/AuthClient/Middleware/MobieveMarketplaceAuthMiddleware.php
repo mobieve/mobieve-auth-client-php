@@ -39,7 +39,7 @@ class MobieveMarketplaceAuthMiddleware
             self::checkRequesterIdentity();
 
             $external_id = JWTAuth::getPayload()->get('user_id');
-            $user = User::where('auth_id', $external_id)->first();
+            $user = User::where('external_id', $external_id)->first();
             if (!$user) {
                 throw new UserNotFoundException();
             }
