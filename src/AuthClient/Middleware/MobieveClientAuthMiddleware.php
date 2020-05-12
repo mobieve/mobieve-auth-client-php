@@ -36,19 +36,19 @@ class MobieveClientAuthMiddleware
 
             return $next($request);
         } catch (TokenExpiredException $e) {
-            Log::error($e);
+            // Log::error($e);
             return response()->json([
                 'message' => 'Unauthorized.',
                 'reason' => 'Token Expired.'
             ], 401);
         } catch (TokenInvalidException $e) {
-            Log::error($e);
+            // Log::error($e);
             return response()->json([
                 'message' => 'Unauthorized.',
                 'reason' => 'Token Invalid.'
             ], 401);
         } catch (NotAClientException $e) {
-            Log::error($e);
+            // Log::error($e);
             return response()->json([
                 'message' => 'Unauthorized.',
                 'reason' => 'You need to be a client to request.'
