@@ -39,7 +39,8 @@ This package provides Classes for Auth Clients made by Mobieve.
     'aliases' => [
         ...
         'Auth' => Illuminate\Support\Facades\Auth::class,
-        'User' => App\User::class
+        'User' => App\User::class,
+        'Team' => App\Team::class
     ],
   ```
 
@@ -50,7 +51,7 @@ This package provides Classes for Auth Clients made by Mobieve.
     return [
       ...
       'auth' => [
-          'url' => env('MOBIEVE_AUTH_URL'),
+          'url' => env('MOBIEVE_AUTH_URL') . '/oauth/token',
           'client_id' => env('MOBIEVE_AUTH_CLIENT_ID'),
           'client_secret' => env('MOBIEVE_AUTH_CLIENT_SECRET')
       ]
@@ -70,11 +71,15 @@ This package provides Classes for Auth Clients made by Mobieve.
   
 ## Middleware
 
-  Two different middleware classes are available.
+  Four different middleware classes are available.
 
   `MobieveClientAuthMiddleware` is used to ensure that the requester is a Client registered in Mobieve Auth server.
 
-  `MobieveUserAuthMiddleware`, on the other hand, is used to ensure that the requester is an User registered in Mobieve Auth server and also will create an User copy in this server.
+  `MobieveUserAuthMiddleware`, on the other hand, is used to ensure that the requester is an User registered in Mobieve Auth server.
+
+  `MobieveUserTeamAuthMiddleware`, is used to ensure thar the request is an User with Team registered in Mobieve Auth server.
+
+  `MobieveAuthMiddleware`, will only check if token is valid.
 
   To use Mobieve Middleware layer in order to check incoming requests authorization include following line in Http/Kernel.php:
 

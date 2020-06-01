@@ -5,6 +5,7 @@ namespace Mobieve\AuthClient\Middleware;
 use Closure;
 use \Auth;
 use \User;
+use \Team;
 use \Exception;
 use \JWTAuth;
 use \Log;
@@ -14,7 +15,7 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
-class MobieveMarketplaceAuthMiddleware
+class MobieveUserTeamAuthMiddleware
 {
     /**
      * Handle an incoming request.
@@ -39,7 +40,11 @@ class MobieveMarketplaceAuthMiddleware
             self::checkRequesterIdentity();
 
             $external_id = JWTAuth::getPayload()->get('user_id');
-            $user = User::where('external_id', $external_id)->first();
+            $external_team_id = JWTAuth::getPayload()->get('team_id');
+            // $user = User::where('external_id', $external_id)->first();
+            // $user = User::where([['external_id' => $external_id], ['team_id' => $team_id]])->first();
+            $team = Team::where('external_id', $external_team_id)->first();
+            $user = User::where(['external_id' => $external_id], ['team_id' => $team->id ?? null])->first();
             if (!$user) {
                 throw new UserNotFoundException();
             }
