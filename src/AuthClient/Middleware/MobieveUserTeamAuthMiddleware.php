@@ -44,7 +44,11 @@ class MobieveUserTeamAuthMiddleware
             // $user = User::where('external_id', $external_id)->first();
             // $user = User::where([['external_id' => $external_id], ['team_id' => $team_id]])->first();
             $team = Team::where('external_id', $external_team_id)->first();
-            $user = User::where(['external_id' => $external_id], ['team_id' => $team->id ?? null])->first();
+            // $user = User::where(['external_id' => $external_id], ['team_id' => $team->id ?? null])->first();
+            $user = User::where([
+                'external_id' => $external_id,
+                'team_id' => $team->id ?? null
+            ])->first();
             if (!$user) {
                 throw new UserNotFoundException();
             }
